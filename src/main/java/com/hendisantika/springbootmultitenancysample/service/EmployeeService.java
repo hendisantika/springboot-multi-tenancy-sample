@@ -1,8 +1,10 @@
 package com.hendisantika.springbootmultitenancysample.service;
 
+import com.hendisantika.springbootmultitenancysample.filter.TenantContext;
 import com.hendisantika.springbootmultitenancysample.model.Employee;
 import com.hendisantika.springbootmultitenancysample.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,4 +56,12 @@ public class EmployeeService implements ApplicationRunner {
         employeeRepository.deleteById(employeeId);
     }
 
+    @Override
+    public void run(ApplicationArguments applicationArguments) throws Exception {
+        TenantContext.setCurrentTenant("tenant1");
+        employeeRepository.save(new Employee(null, "John", "Doe", null));
+        TenantContext.setCurrentTenant("tenant2");
+        employeeRepository.save(new Employee(null, "Jane", "Doe", null));
+        TenantContext.clear();
+    }
 }
