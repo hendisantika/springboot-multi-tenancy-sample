@@ -49,4 +49,9 @@ public class EmployeeService implements ApplicationRunner {
         return employeeRepository.findById(employeeId);
     }
 
+    @Transactional
+    public void deleteEmployee(String employeeId) {
+        employeeRepository.deleteById(employeeId);
+    }
+
 }
