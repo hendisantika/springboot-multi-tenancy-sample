@@ -3,6 +3,7 @@ package com.hendisantika.springbootmultitenancysample.controller;
 import com.hendisantika.springbootmultitenancysample.model.Employee;
 import com.hendisantika.springbootmultitenancysample.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,5 +45,10 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public Optional<Employee> getEmployee(@PathVariable("id") String employeeId) {
         return employeeService.getEmployee(employeeId);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteEmployee(@PathVariable("id") String employeeId) {
+        employeeService.deleteEmployee(employeeId);
     }
 }
