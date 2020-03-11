@@ -3,6 +3,8 @@ package com.hendisantika.springbootmultitenancysample.filter;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.Filter;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,4 +20,7 @@ public class TenantFilter implements Filter {
 
     private static final String TENANT_HEADER = "X-TenantID";
 
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
 }
