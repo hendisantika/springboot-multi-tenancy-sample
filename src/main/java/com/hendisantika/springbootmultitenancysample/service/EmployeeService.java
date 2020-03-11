@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -36,4 +37,10 @@ public class EmployeeService implements ApplicationRunner {
     public Employee createEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
+
+    @Transactional
+    public List<Employee> listEmployees() {
+        return employeeRepository.findAll();
+    }
+
 }
