@@ -1,8 +1,12 @@
 package com.hendisantika.springbootmultitenancysample.controller;
 
+import com.hendisantika.springbootmultitenancysample.model.Employee;
 import com.hendisantika.springbootmultitenancysample.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,5 +25,10 @@ public class EmployeeController {
     @Autowired
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
+    }
+
+    @GetMapping
+    public List<Employee> listEmployees() {
+        return employeeService.listEmployees();
     }
 }
