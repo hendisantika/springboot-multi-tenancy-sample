@@ -15,7 +15,7 @@ using a discriminator field (`tenant_id`) with Hibernate filters.
 | Java            | 25 (Temurin / Corretto)          |
 | Spring Boot     | 4.x                              |
 | Hibernate ORM   | 7.x (managed by Spring Boot)     |
-| Build tool      | Maven 3.9.x (via Maven Wrapper)  |
+| Build tool      | Maven 3.10.x (via Maven Wrapper) |
 | Database        | PostgreSQL (runtime), H2 (tests) |
 | Spring AOP      | `spring-boot-starter-aspectj`    |
 
